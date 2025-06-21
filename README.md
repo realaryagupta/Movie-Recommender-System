@@ -1,146 +1,101 @@
+# 🎬 Movie Recommender App
+
+A powerful movie recommendation system featuring **Content-Based Filtering**, **Collaborative Filtering**, and a **Hybrid Recommendation Engine** — all wrapped in a sleek, interactive **Streamlit** app. Designed to provide accurate and engaging suggestions based on both user behavior and movie metadata.
+
+<!-- [**Live Demo**](https://your-streamlit-app-url)  -->
 
 ---
 
-# Movie Recommendation System
+## About the Project
 
-## Overview
+This project explores multiple recommendation strategies to suggest movies based on user interest or selection. It goes beyond basic filtering to implement and compare:
 
-Welcome to my **Movie Recommendation System** project! This repository demonstrates the creation of multiple recommendation engines for suggesting movies to users. The system leverages a combination of various algorithms, including **Simple Recommender**, **Content-Based Filtering**, **Collaborative Filtering**, and a **Hybrid Engine**. By using techniques like **TF-IDF**, **Cosine Similarity**, and **Singular Value Decomposition (SVD)**, I aim to provide highly personalized movie recommendations based on user preferences and movie features.
+* **Content-Based Filtering** using movie metadata (genres, keywords, overview).
+* **Collaborative Filtering** via latent factor models (e.g., SVD).
+* **Hybrid System** that intelligently combines both for improved recommendations.
 
----
+### What I Built
 
-## Features
-
-- **Simple Recommender:** 
-  - A basic system that ranks movies based on popularity and vote averages using the IMDb weighted rating system.
-  
-- **Content-Based Recommender:** 
-  - Two models:
-    1. Movie overview and tagline-based recommendations.
-    2. Metadata-based recommendations (genre, cast, crew, and keywords).
-  
-- **Collaborative Filtering:** 
-  - Using the **Surprise** library, this engine predicts user ratings for movies and recommends them based on user preferences.
-
-- **Hybrid Engine:** 
-  - A fusion of **Content-Based** and **Collaborative Filtering** models that generates more accurate and personalized movie recommendations by combining the strengths of both approaches.
+* A modular recommendation pipeline supporting three industry-grade methods.
+* **TF-IDF**, **cosine similarity**, and **stemmed NLP features** for content-based logic.
+* **Matrix factorization with Truncated SVD** for collaborative filtering.
+* Dynamic **hybrid engine** that blends scores from content and collaborative systems.
+* Clean, user-friendly **Streamlit interface** for live interaction.
+* **Deployed on the web** with zero-install access.
 
 ---
 
-## Key Concepts
+## Recommendation Approaches
 
-- **Cosine Similarity:** Used for content-based recommendations, where movie similarities are calculated based on their features.
-  
-- **IMDB Weighted Rating Formula:** Helps rank movies based on a combination of their average ratings and the number of votes they’ve received.
-  
-- **Singular Value Decomposition (SVD):** A powerful collaborative filtering technique used to predict ratings based on user-movie interactions.
+### 1. Content-Based Filtering
 
----
+* Uses metadata like genres, plot keywords, and summaries.
+* NLP techniques: tokenization, stemming, vectorization via TF-IDF/CountVectorizer.
+* Computes **cosine similarity** to find similar movies.
 
-## Getting Started
+### 2. Collaborative Filtering
 
-To run the project locally, follow these steps:
+* Learns latent user preferences via **TruncatedSVD** (similar to matrix factorization).
+* Suggests movies based on similarity in user rating patterns.
 
-### Prerequisites
+### 3. Hybrid Recommendation System
 
-- Python 3.x
-- Jupyter Notebook (or any other notebook environment)
-- Necessary Python libraries:
-  - `pandas`
-  - `numpy`
-  - `sklearn`
-  - `surprise`
-  - `nltk`
-  - `matplotlib`
-
-### Installation
-
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/your-username/movie-recommendation-system.git](https://github.com/realaryagupta/Movie-Recommender-System.git
-
-   ```
-2. Navigate to the project directory:
-   ```bash
-   cd movie-recommendation-system
-   ```
-3. Install the required dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. Open the Jupyter notebook and run it:
-   ```bash
-   jupyter notebook
-   ```
+* Combines both systems by **weighted scoring**.
+* Aims to reduce cold-start problems and improve accuracy.
 
 ---
 
-## How It Works
+## Tech Stack
 
-1. **Simple Recommender:**
-   - Uses movie vote counts and average ratings to generate top movie charts. It utilizes the **IMDB Weighted Rating formula** to calculate ratings and ranks movies accordingly.
-   
-2. **Content-Based Filtering:**
-   - Calculates movie similarity using **TF-IDF** for overviews and taglines.
-   - For metadata-based recommendations, it considers features like **genres**, **cast**, **crew**, and **keywords** to compute similarity scores between movies.
-
-3. **Collaborative Filtering:**
-   - Implements **Singular Value Decomposition (SVD)** using the **Surprise** library to predict movie ratings based on user history and preferences.
-   
-4. **Hybrid Engine:**
-   - Combines content-based and collaborative filtering models, enhancing the recommendation quality by leveraging both the similarities of movies and user behavior.
+| Category      | Tools Used                                     |
+| ------------- | ---------------------------------------------- |
+| Frontend      | Streamlit                                      |
+| Data Handling | Pandas, NumPy                                  |
+| NLP/Modeling  | Scikit-learn, NLTK (SnowballStemmer)           |
+| Visualization | Plotly                                         |
+| Deployment    | Streamlit Cloud / Render / Hugging Face Spaces |
 
 ---
 
-## Sample Output
+## Key Achievements
 
-- **Top Movies**:
-  - Top 25 movies sorted by similarity or rating
-  - Genre-specific movie charts (e.g., Top Romance, Top Action)
-  
-- **User-Specific Recommendations**:
-  - Personalized recommendations based on user movie ratings and preferences.
-
----
-
-## Future Enhancements
-
-- **Refining Hybrid Models:** Experiment with different weightings for features like genres, cast, and crew.
-- **Real-time Recommendations:** Implement real-time personalized recommendations using dynamic user data.
-- **Expand Dataset:** Integrate additional movie features like **plot summaries**, **release dates**, and **budget** for better recommendations.
-- **User Interface:** Create a web-based interface where users can input their movie preferences and get recommendations instantly.
+* Built 3 recommendation engines and integrated them seamlessly.
+* Applied NLP, dimensionality reduction, and similarity metrics end-to-end.
+* Created a performant app ready for production and user testing.
+* Deployed a machine learning system to the web with full accessibility.
+* Practiced full-stack ML development with frontend + backend integration.
 
 ---
 
-## Contributing
+## Run Locally
 
-I welcome contributions to improve the recommender system! Feel free to fork the repo, open issues, or submit pull requests. 
-
-### Steps to Contribute:
-1. Fork the repo
-2. Create a new branch
-3. Make changes and commit 
-4. Push to the branch 
-5. Open a pull request
+```bash
+git clone https://github.com/realaryagupta/Movie-Recommender-System.git
+cd Movie-Recommender-System
+pip install -r requirements.txt
+streamlit run main.py
+```
 
 ---
 
-## License
+## Sample Use Cases
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-## Acknowledgements
-
-- **TMDB Dataset**: For providing an extensive collection of movie data.
-- **Surprise Library**: For making collaborative filtering easy with their powerful algorithms.
+* “Find me movies similar to *Inception*” (Content-Based)
+* “What would users like me watch next?” (Collaborative)
+* “Best of both worlds?” (Hybrid)
 
 ---
 
-## Contact
+## Let's Connect!
 
-For any questions or feedback, feel free to reach out via the GitHub Issues tab.
+* [LinkedIn](https://www.linkedin.com/in/arya-gupta-9b5873218/)
+* [GitHub](https://github.com/realaryagupta)
+* [aryagupta2108.ag@gmail.com](mailto:aryagupta2108.ag@gmail.com)
+
+---
+
+## ⭐️ Show Some Love
+
+If you like this project, feel free to star ⭐ the repo and share your thoughts!
 
 ---
